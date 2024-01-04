@@ -2,23 +2,11 @@ from ctypes.wintypes import RGB
 
 
 class RGBAPixel:
-  def __init__(self) -> None:
-    self.r = 0
-    self.g = 0
-    self.b = 0
-    self.a = 1.0
-  
-  def __init__(self, r, g, b) -> None:
+  def __init__(self, r=0, g=0, b=0, a=1.0) -> None:
     self.r = r
     self.g = g
     self.b = b
-    self.a = 1.0
-
-  def __init__(self, r, g, b, a) -> None:
-    self.r = r
-    self.g = g
-    self.b = b
-    self.a = a
+    self.a = a / 255
 
   def __eq__(self, __value: 'RGBAPixel') -> bool:
     if (self.a == __value.a):
