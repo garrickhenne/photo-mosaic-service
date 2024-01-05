@@ -36,7 +36,7 @@ def upload():
 
   if file and file.filename.endswith('.png'):
     filename = secure_filename(file.filename)
-    file.save(filename)
+    file.save('./images/' + filename)
 
     try:
       transformed_filename = create_mosaic_file(filename, coordinates, pattern)
