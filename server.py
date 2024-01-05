@@ -36,11 +36,14 @@ def upload():
 
   if file and file.filename.endswith('.png'):
     filename = secure_filename(file.filename)
-    file.save('./images/' + filename)
+    filename = './images/' + filename
+    print(filename)
+    file.save(filename)
 
     try:
       transformed_filename = create_mosaic_file(filename, coordinates, pattern)
-    except:
+    except Exception as e:
+      print(e)
       return jsonify({"message": "Error creating mosaic"}), 500
     return send_file(transformed_filename, mimetype='image/png')
   else:
