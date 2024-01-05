@@ -22,6 +22,10 @@ class PNG:
     index = y * self.width + x
     return self.image_data[index]
   
+  def set_pixel(self, x, y, pixel):
+    index = y * self.width + x
+    self.image_data[index] = pixel
+  
   def read_from_file(self, filename):
     with open(filename, 'rb') as file:
       reader = png.Reader(file=file)
