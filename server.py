@@ -1,17 +1,33 @@
 from flask import Flask, request, jsonify, send_file
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
-from PNG import PNG
-import mosaic
+from mosaic_runner import create_mosaic_file
 
 app = Flask(__name__)
 CORS(app)
 
 @app.route('/api/upload', methods=['POST'])
 def upload():
+  x = request.args.get('x')
+  y = request.args.get('y')
+  pattern = request.args.get('pattern')
+
+  if not pattern:
+    return jsonify({"message": "No pattern provided"}), 400
+  
+  if not x or not y:
+    return jsonify({"message": "No coordinates provided"}), 400
+  
+  try:
+    x = int(x)
+    y = int(y)
+  except:
+    return jsonify({"message": "Invalid coordinates"}), 400
+
   if 'file' not in request.files:
     return jsonify({"message": "No file part in the request"}), 400
 
+  coordinates = (x, y)
   file = request.files['file']
 
   if file.filename == '':
@@ -19,15 +35,14 @@ def upload():
   
 
   if file and file.filename.endswith('.png'):
-    png_file = PNG()
     filename = secure_filename(file.filename)
     file.save(filename)
 
-    png_file.read_from_file(filename)
-    mosaic.create_mosaic(png_file, (1,1), '1r2o3y4g3b2i1v')
-    png_file.write_to_file('./temp/temp-image-mosaic.png')
-
-    return send_file('./temp/temp-image-mosaic.png', mimetype='image/png')
+    try:
+      transformed_filename = create_mosaic_file(filename, coordinates, pattern)
+    except:
+      return jsonify({"message": "Error creating mosaic"}), 500
+    return send_file(transformed_filename, mimetype='image/png')
   else:
     return jsonify({"message": "Uploaded file is not a PNG file"}), 400
 
