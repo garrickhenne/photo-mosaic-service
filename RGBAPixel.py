@@ -6,6 +6,8 @@ class RGBAPixel:
     self.a = a
 
   def __eq__(self, __value: 'RGBAPixel') -> bool:
+    if __value is None:
+      return False
     if (self.a == __value.a):
       return True
     if (abs(self.r - __value.r > 2)):
