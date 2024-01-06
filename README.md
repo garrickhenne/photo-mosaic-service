@@ -26,6 +26,8 @@ Centered at (10,10), sequence '0r0o0y0g0b0i0v' where the each number corresponds
 
 ![Transformed Image](.github/images/zulktlwz.png)
 
+![Blank transformed image](.github/images/blank-mosaic.png)
+
 ## Intention
 I wanted to translate a past project of mine that I enjoyed into a more modern language, ie Python.
 This project was done to increase my familiarity with Python as well as get some more practice using flask for creating servers. In the future I'd like to have this as a service that could be directly accessible from my portfolio website.
