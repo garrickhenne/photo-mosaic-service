@@ -19,11 +19,15 @@ Centered at (10,10), sequence '0r0o0y0g0b0i0v' where the each number corresponds
 
 ![Original luffy](.github/images/luffy3.png)
 
+![Original Mario](.github/images/mario.png)
+
 ![Original Pepe](.github/images/pepeOG.png)
 
 ### Transformed
 
 ![Transformed luffy](.github/images/zepgaair.png)
+
+![Transformed mario](.github/images/fjxsswnn.png)
 
 ![Transformed pepe Image](.github/images/zulktlwz.png)
 
