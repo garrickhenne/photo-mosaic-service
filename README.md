@@ -17,14 +17,15 @@ Endpoint is POST `/api/upload/?:x&:y&:pattern`
 ### Original
 Centered at (10,10), sequence '0r0o0y0g0b0i0v' where the each number corresponds to the gap 'between' pixels and each letter corresponds to a color in 'ROYGBIV'
 
+![Original luffy](.github/images/luffy3.png)
 
 ![Original Pepe](.github/images/pepeOG.png)
 
-
 ### Transformed
 
+![Transformed luffy](.github/images/zepgaair.png)
 
-![Transformed Image](.github/images/zulktlwz.png)
+![Transformed pepe Image](.github/images/zulktlwz.png)
 
 ![Blank transformed image](.github/images/blank-mosaic.png)
 
